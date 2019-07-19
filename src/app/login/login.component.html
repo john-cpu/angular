@@ -1,0 +1,14 @@
+<div style="width:210px;height:200px;margin-top:200px;margin-left: 580px;border:1px solid">
+  <form method="post" #lform = "ngForm" (ngSubmit)="login()">
+    <h2 style="width:180px;height:30px;margin:5px;line-height:30px;text-align: center">请登录</h2>
+    <p>
+      <span>用户名</span>
+      <input style="width:120px;height:20px;margin:5px;line-height:20px;" type="text" name="username"  [(ngModel)]="credentials.username" placeholder="Username" required autofocus>
+    </p>
+    <p>
+      <span>密  码</span>
+      <input style="width:120px;height:20px;margin:5px;line-height:20px;" type="password"  name="password" [(ngModel)]="credentials.password"  placeholder="Password" required>
+    </p>
+    <button style="width:50px;height:30px;margin-left:80px;line-height:30px;text-align: center" type="submit">登录</button>
+  </form>
+</div>

@@ -1,0 +1,71 @@
+<div class="container">
+  <h2>车辆注册</h2>
+  <form (ngSubmit)="onsubmit(rgForm.value)" #rgForm="ngForm" method="post" enctype="multipart/form-data" >
+    <input type="hidden"  name="id" [(ngModel)]="car.id">
+    <input type="hidden"  name="state" [(ngModel)]="car.state">
+    <table class="table table-bordered" style="width:700px;float:left">
+      <tbody>
+      <tr>
+        <td style="text-align:right"><span style="color:red">* </span>车牌号</td>
+        <td><input type="text"  name="cph" [(ngModel)]="car.cph"> </td>
+        <td style="text-align:right"><span style="color:red">* </span>车辆所有人</td>
+        <td><input type="text"  name="username" [(ngModel)]="car.username"> </td>
+      </tr>
+      <tr>
+        <td style="text-align:right"><span style="color:red">* </span>车辆颜色</td>
+        <td>
+          <select name="color" style="width:175px;height:28px;border-radius:4px" [(ngModel)]="car.color">
+            <option value="红色">红色</option>
+            <option value="黄色">黄色</option>
+            <option value="白色">白色</option>
+            <option value="黑色">黑色</option>
+            <option value="棕色">棕色</option>
+          </select>
+        </td>
+        <td style="text-align:right"><span style="color:red">* </span>发动机号</td>
+        <td><input type="text" name="fdjID" [(ngModel)]="car.fdjID"> </td>
+      </tr>
+      <tr>
+        <td style="text-align:right"><span style="color:red">* </span>车辆厂牌</td>
+        <td>
+          <select name="brand" style="width:175px;height:28px;border-radius:4px" [(ngModel)]="car.brand">
+            <option value="现代">现代</option>
+            <option value="大众">大众</option>
+            <option value="奔驰">奔驰</option>
+            <option value="奥迪">奥迪</option>
+            <option value="宝马">宝马</option>
+          </select>
+        </td>
+        <td style="text-align:right"><span style="color:red">* </span>车辆机架号</td>
+        <td><input type="text" name="jjID" [(ngModel)]="car.jjID"> </td>
+      </tr>
+      <tr>
+        <td style="text-align:right"><span style="color:red">* </span>车辆型号</td>
+        <td><input type="text"  name="cxh" [(ngModel)]="car.cxh"> </td>
+        <td style="text-align:right"><span style="color:red">* </span>注册日期</td>
+        <td><input type="text"  name="rtime" [(ngModel)]="car.rtime"> </td>
+      </tr>
+      <tr>
+        <td style="text-align:right"><span style="color:red">* </span>车辆类型</td>
+        <td>
+          <select name="ctype" style="width:175px;height:28px;border-radius:4px"  [(ngModel)]="car.ctype">
+            <option value="轿车">轿车</option>
+            <option value="SUV">SUV</option>
+            <option value="跑车">跑车</option>
+          </select>
+        </td>
+        <td style="text-align:right"><span style="color:red">* </span>初次登记日期</td>
+        <td><input type="text" name="firstDate" [(ngModel)]="car.firstDate"> </td>
+      </tr>
+      <tr>
+        <td colspan="2" style="border:none;text-align:center"><input type="submit"class="btn btn-primary" value="提交"/></td>
+        <td colspan="2" style="border:none;text-align:center"><input type="reset" class="btn btn-primary" (click)="goBack()" value="取消"/></td>
+      </tr>
+      </tbody>
+    </table>
+    <div style="border:1px solid;width:200px;height:200px;float:left;margin-left:20px">
+      <input type="file" accept="image/gif, image/jpeg" ng2FileSelect [uploader]="uploader" name="imgPath" value="选择图片" [(ngModel)]="car.imgPath" (change)="fileChange($event)">
+      <img *ngIf="car.imgPath != undefined" height="100px" alt="img..." width="100px" [src]="picd.bypassSecurityTrustUrl(car.imgPath)">
+    </div>
+  </form>
+</div>
